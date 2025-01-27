@@ -7,21 +7,28 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
 }
 
 .navbar {
     background-color: #333;
-    padding: 15px 20px;
+    padding: 10px 20px;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-.navbar-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .search-bar, .year-select {
@@ -33,12 +40,7 @@ body {
 }
 
 .year-select {
-    width: 160px;
-}
-
-.checkbox-container {
-    display: flex;
-    gap: 15px;
+    width: 120px;
 }
 
 .checkbox-container label {
@@ -46,43 +48,63 @@ body {
     font-size: 14px;
 }
 
-.add-card-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.add-card-btn:hover {
-    background-color: #45a049;
-}
-
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
+    justify-items: center;
 }
 
 .card {
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 250px;
+}
+
+.card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
 .card h3 {
-    font-size: 18px;
+    font-size: 16px;
+    color: #777;
     margin-bottom: 10px;
 }
 
 .card p {
     font-size: 14px;
     color: #555;
+    margin-bottom: 15px;
+}
+
+.card-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
 }
