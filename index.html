@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec Navbar et Cards Dynamiques</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <input type="text" id="searchBar" placeholder="Recherche..." class="search-bar">
+            
+            <select id="yearSelect" class="year-select">
+                <option value="">Sélectionner une année</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+
+            <div class="checkbox-container">
+                <label>
+                    <input type="checkbox" id="checkbox1"> dev frontend
+                </label>
+                <label>
+                    <input type="checkbox" id="checkbox2"> dev backend
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <button id="addCardBtn" class="add-card-btn">Ajouter une carte</button>
+
+    <section id="cardsContainer" class="cards-container">
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
