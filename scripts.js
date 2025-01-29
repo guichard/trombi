@@ -1,4 +1,4 @@
-const apiUrl = "https://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants";
+const apiUrl = "http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants";
 const cardsContainer = document.getElementById("cards-container");
 
 // Fonction pour créer une carte
