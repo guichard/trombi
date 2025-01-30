@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("yearSelect").addEventListener("change", function() {
     let selectedValue = this.value;
     console.log(selectedValue);
+    if(selectedValue === "promotion") {
+        apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100';
+    }
     if(selectedValue === "2025") {
         apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100&promotions=2';
     }
