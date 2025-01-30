@@ -15,6 +15,7 @@ const createCard = (apprenant, competences, promotions) => {
 
     // Contenu des cartes
     card.innerHTML = `
+    <div class="card-content">
         <img src="${apprenant.image}" alt="Photo de profil" class="card-img">
         <h2>${apprenant.prenom || 'Prénom inconnu'} ${apprenant.nom || 'Nom inconnu'}</h2>
         <h3>${promotion.name}</h3>
@@ -24,6 +25,7 @@ const createCard = (apprenant, competences, promotions) => {
             <a href="${apprenant.cv || '#'}" class="btn" target="_blank">CV</a>
             <a href="${apprenant.linkedin || '#'}" class="btn" target="_blank">LinkedIn</a>
         </div>
+    </div>
     `;
 
     return card;
@@ -78,17 +80,42 @@ document.getElementById("yearSelect").addEventListener("change", function() {
     let selectedValue = this.value;
     console.log(selectedValue);
     if(selectedValue === "promotion") {
-        apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100';
+        apiURL = apiURL.replace("&promotions=2", "");
+        apiURL = apiURL.replace("&promotions=7", "");
+        apiURL = apiURL.replace("&promotions=8", "");
     }
     if(selectedValue === "2025") {
-        apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100&promotions=2';
+        apiURL += "&promotions=2";
+        apiURL = apiURL.replace("&promotions=7", "");
+        apiURL = apiURL.replace("&promotions=8", "");
     }
     if(selectedValue === "2024") {
-        apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100&promotions=7';
+        apiURL += "&promotions=7";
+        apiURL = apiURL.replace("&promotions=2", "");
+        apiURL = apiURL.replace("&promotions=8", "");
     }
     if(selectedValue === "2023") {
-        apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100&promotions=8';
+        apiURL += "&promotions=8";
+        apiURL = apiURL.replace("&promotions=2", "");
+        apiURL = apiURL.replace("&promotions=7", "");
     }
     console.log(apiURL);
     loadApprenants();
+});
+
+//filtre : compétences
+document.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+        const competenceValue = encodeURIComponent(checkbox.value);
+        if (checkbox.checked) {
+            // case cochée
+            apiURL += "&competences=" + competenceValue;
+        } else {
+            // case décochée
+            apiURL = apiURL.replace("&competences=" + competenceValue, "");
+        }
+
+        console.log("URL générée :", apiURL);
+        loadApprenants();
+    });
 });
