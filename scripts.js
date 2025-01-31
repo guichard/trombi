@@ -1,6 +1,6 @@
 const cardsContainer = document.getElementById("cards-container");
 //URL API de base
-var apiURL = 'http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100';
+var apiURL = 'https://api-trombi.webedy.fr/wp-json/wp/v2/apprenants/?per_page=100';
 
 // Fonction pour créer une carte
 const createCard = (apprenant, competences, promotions) => {
@@ -44,14 +44,14 @@ const loadApprenants = async () => {
         const apprenants = await responseApprenants.json();
 
         // Charger les données de compétences
-        const responseCompetences = await fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences');
+        const responseCompetences = await fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/competences');
         if (!responseCompetences.ok) {
             throw new Error(`Erreur HTTP lors des compétences : ${responseCompetences.status}`);
         }
         const competences = await responseCompetences.json();
 
         // Charger les données de promotions
-        const responsePromotions = await fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions');
+        const responsePromotions = await fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/promotions');
         if (!responsePromotions.ok) {
             throw new Error(`Erreur HTTP lors des promotions : ${responsePromotions.status}`);
         }
